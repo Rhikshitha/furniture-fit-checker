@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, SafeAreaView } from 'react-native';
 import FurnitureSelector from './src/components/FurnitureSelector';
-import ImageARViewer from './src/components/ImageARViewer';
+import CloudVisionARViewer from './src/components/CloudVisionARViewer';
 import { FurnitureModel } from './src/models/FurnitureModels';
 
 export default function App() {
@@ -26,7 +26,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       {showAR ? (
-        <ImageARViewer
+        <CloudVisionARViewer
           selectedFurniture={selectedFurniture}
           furnitureImage={furnitureImage}
           onBack={handleBack}
