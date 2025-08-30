@@ -9,10 +9,22 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/metro-runtime": "~5.0.4",
+    "@react-three/fiber": "^9.3.0",
     "expo": "~53.0.22",
+    "expo-camera": "^16.1.11",
+    "expo-gl": "^15.1.7",
+    "expo-gl-cpp": "^11.4.0",
+    "expo-image-picker": "^16.1.4",
+    "expo-media-library": "^17.1.7",
+    "expo-sensors": "^14.1.4",
     "expo-status-bar": "~2.2.3",
+    "expo-three": "^8.0.0",
     "react": "19.0.0",
-    "react-native": "0.79.6"
+    "react-dom": "19.0.0",
+    "react-native": "0.79.6",
+    "react-native-web": "^0.20.0",
+    "three": "^0.179.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

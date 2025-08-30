@@ -1,12 +1,42 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
+import FurnitureSelector from './src/components/FurnitureSelector';
+import ImageARViewer from './src/components/ImageARViewer';
+import { FurnitureModel } from './src/models/FurnitureModels';
 
 export default function App() {
+  const [selectedFurniture, setSelectedFurniture] = useState<FurnitureModel | null>(null);
+  const [furnitureImage, setFurnitureImage] = useState<string | undefined>(undefined);
+  const [showAR, setShowAR] = useState(false);
+
+  const handleSelectFurniture = (furniture: FurnitureModel, image?: string) => {
+    setSelectedFurniture(furniture);
+    setFurnitureImage(image);
+    setShowAR(true);
+  };
+
+  const handleBack = () => {
+    setShowAR(false);
+    setSelectedFurniture(null);
+    setFurnitureImage(undefined);
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-    </View>
+      {showAR ? (
+        <ImageARViewer
+          selectedFurniture={selectedFurniture}
+          furnitureImage={furnitureImage}
+          onBack={handleBack}
+        />
+      ) : (
+        <FurnitureSelector
+          onSelectFurniture={handleSelectFurniture}
+        />
+      )}
+    </SafeAreaView>
   );
 }
 
@@ -14,7 +44,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
