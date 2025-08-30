@@ -116,31 +116,6 @@ const FurnitureSelector: React.FC<FurnitureSelectorProps> = ({ onSelectFurniture
         )}
       </View>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Or Try Preset Furniture</Text>
-        <View style={styles.furnitureGrid}>
-          {furniturePresets.map((furniture) => (
-            <TouchableOpacity
-              key={furniture.id}
-              style={styles.furnitureCard}
-              onPress={() => handleSelectFurniture(furniture)}
-            >
-              <View style={[styles.furniturePreview, { backgroundColor: furniture.color }]} />
-              <Text style={styles.furnitureName}>{furniture.name}</Text>
-              <Text style={styles.furnitureDimensions}>
-                {furniture.dimensions.width} × {furniture.dimensions.height} × {furniture.dimensions.depth} cm
-              </Text>
-              <TouchableOpacity 
-                style={styles.cardARButton}
-                onPress={() => handleSelectFurniture(furniture)}
-              >
-                <Text style={styles.cardARButtonText}>View in AR</Text>
-              </TouchableOpacity>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </View>
-
       <View style={styles.howItWorks}>
         <Text style={styles.howItWorksTitle}>How it works:</Text>
         <Text style={styles.howItWorksText}>1. Upload furniture image or select preset</Text>
